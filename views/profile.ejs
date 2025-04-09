@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile</title>
+  <link rel="stylesheet" href="/srtyle-sheets/profile.css" />
+  <link rel="stylesheet" href="/srtyle-sheets/modal.css" />
+</head>
+
+<body>
+  <!-- The Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <header class="modal-header">
+        <p class="close">&times;</p>
+        <h2>DEFAULT</h2>
+      </header>
+
+      <!-- Modal Body -->
+      <main class="modal-body"></main>
+
+      <!-- Modal Footer -->
+      <footer class="modal-footer"></footer>
+    </div>
+  </div>
+
+  <div class="profile-container">
+    <h1>
+      <%= user.username %> Profile
+    </h1>
+    <div class="profile-form">
+      <div class="form-group">
+        <label>Firstname:</label>
+        <span>
+          <%= user.firstname %>
+        </span>
+      </div>
+      <div class="form-group">
+        <label>Lastname:</label>
+        <span>
+          <%= user.lastname %>
+        </span>
+      </div>
+      <div class="form-group">
+        <label>Username:</label>
+        <span>
+          <%= user.username %>
+        </span>
+      </div>
+      <div class="form-group">
+        <label>Email:</label>
+        <span>
+          <%= user.email %>
+        </span>
+      </div>
+      <div class="form-group">
+        <label style="color: red ; cursor: pointer">Gender:</label>
+        <span>
+          <%= user.gender %>
+        </span>
+      </div>
+    </div>
+    <div class="button-group">
+      <button type="button" id="edit-profile" onclick="renderUpdateUser('<%= user.username %>')">Edit Profile</button>
+      <button type="button" id="logout" onclick="logOut('<%= user.username %>')">Logout From <%= user.username %>
+          </button>
+    </div>
+  </div>
+
+  <script src="/javascript/profile.js"></script>
+  <script src="/javascript/modal.js"></script>
+</body>
+
+</html>

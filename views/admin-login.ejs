@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>admin login</title>
+  <link rel="stylesheet" href="/srtyle-sheets/login.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="error-message">
+    </div>
+    <form action="#">
+      <h2>Admin Login</h2>
+      <div class="input-field">
+        <input type="text" id="username-input" required value="aaaaaaaa">
+        <label>Enter your username</label>
+      </div>
+      <div class="input-field">
+        <input type="password" id="password-input" required value="Bb123456">
+        <label>Enter your password</label>
+      </div>
+      <div class="forget">
+        <label for="remember">
+          <input type="checkbox" id="rememberme-checkbox">
+          <p>Remember me</p>
+        </label>
+        <a id="forgotpassword-page" href="#">Forgot password?</a>
+      </div>
+      <button type="submit" id="login-submit-btn">Log In</button>
+      <div class="register">
+        <p>Don't have an account? <a href="#" id="signup-btn">Sign Up</a></p>
+      </div>
+    </form>
+  </div>
+
+  <script src="/javascript/admin-login.js"></script>
+</body>
+
+</html>

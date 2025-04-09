@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glassmorphism Signup Form</title>
+  <link rel="stylesheet" href="/srtyle-sheets/signup.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="error-message">
+
+    </div>
+    <form action="#">
+      <h2>Register</h2>
+
+      <div class="input-field">
+        <input type="text" required id="firstname-input" value="firstname">
+        <label>Enter your firstname</label>
+      </div>
+
+      <div class="input-field">
+        <input type="text" required id="lastname-input" value="firstname">
+        <label>Enter your lastname</label>
+      </div>
+
+      <div class="input-field">
+        <input type="text" required id="username-input" value="firstname">
+        <label>Enter your username</label>
+      </div>
+
+      <div class="input-field">
+        <input type="email" required id="email-input" value="firstname@gmail.com">
+        <label>Enter your email</label>
+      </div>
+
+      <div class="input-field">
+        <input type="password" required id="create-password-input" value="firstname">
+        <label>Create password</label>
+      </div>
+
+      <div class="input-field">
+        <input type="password" required id="confirm-password-input" value="firstname">
+        <label>Confirm password</label>
+      </div>
+
+      <div class="gender-selection">
+        <label>Gender:</label>
+        <div class="gender-options">
+          <label>
+            <input type="radio" name="gender" value="male"> Male
+          </label>
+          <label>
+            <input type="radio" name="gender" value="female"> Female
+          </label>
+          <label>
+            <input type="radio" name="gender" value="not-set" checked> Not Set
+          </label>
+        </div>
+      </div>
+
+      <div class="terms">
+        <label for="agree-terms">
+          <input type="checkbox" id="agree-terms" required>
+          <p>I agree to the <a href="#">Terms & Conditions</a></p>
+        </label>
+      </div>
+
+      <button type="submit" id="signup-submit-btn">Sign Up</button>
+
+      <div class="login">
+        <p>Already have an account? <a href="#" id="login-btn">Login</a></p>
+      </div>
+    </form>
+  </div>
+</body>
+<script src="/javascript/signup.js"></script>
+
+
+</html>

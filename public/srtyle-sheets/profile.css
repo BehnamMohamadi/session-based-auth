@@ -1,0 +1,96 @@
+body {
+  font-family: Arial, sans-serif;
+  background-image: url("../photo/hero-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-weight: bold;
+  color: #5958c5;
+  font-size: 1rem;
+}
+
+.profile-container {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+  max-width: 900px;
+  height: 60%;
+}
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.form-group {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
+  width: 20%;
+  height: 20%;
+  border: 1px solid rgb(8, 7, 7);
+  padding: 20px;
+  color: #131111;
+  background-color: #fff;
+  margin-right: 10px;
+  border-radius: 0.5rem;
+}
+
+span {
+  width: 80%;
+  height: 20%;
+  border: 1px solid rgb(31, 30, 30);
+  padding: 20px;
+  color: #131111;
+  background-color: #fff;
+  border-radius: 0.5rem;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+button {
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  padding: 20px;
+  width: 20%;
+  display: inline-flex;
+  font-size: 1rem;
+}
+
+#edit-profile {
+  background-color: #1e1d55;
+  color: #f7f2f2;
+  width: 22%;
+  margin-right: 10px;
+  padding: 20px;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+}
+
+#logout {
+  background-color: #1e1d55;
+  color: #f7f2f2;
+  width: 77%;
+  padding: 20px;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+}
