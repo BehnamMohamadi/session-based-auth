@@ -1,34 +1,42 @@
-const path = require("node:path");
+const { join } = require("node:path");
 const express = require("express");
 const morgan = require("morgan");
-const { connect } = require("mongoose");
 const session = require("express-session");
+const dotenv = require("dotenv");
+const { connectToDatabase } = require("./database/database-connection");
 const { AppError } = require("./utils/app-error");
-const appRouter = require("./routes/app-routes");
+const { addAdmin } = require("./utils/add-admin");
+const appRouter = require("./routes/app-route");
 
-const host = "127.0.0.1";
-const port = 8000;
+const dotenvConfig = dotenv.config({ path: join(__dirname, "./config.env") });
+
+if (!!dotenvConfig.error) {
+  console.error("[-] dotenv config", dotenvConfig.error.message);
+  console.info("[i] process terminated.");
+
+  process.exit(1);
+}
+
+const port = process.env.PORT;
+const host = process.env.HOST;
 
 const app = express();
 
-connect("mongodb://localhost:27017/user-management")
-  .then(() => console.log("database is connected"))
-  .catch(() => {
-    console.log("database is disconnected");
-    process.exit(1);
-  });
+connectToDatabase().then(() => addAdmin());
 
 app.use(morgan("dev"));
-app.use(express.json({ limit: "10kb" }));
 
-app.set("views", path.join(__dirname, "./views"));
 app.set("view engine", "ejs");
+app.set("views", join(__dirname, "./views"));
 
-app.use(express.static(path.join(__dirname, "./public")));
+app.use(express.static(join(__dirname, "./public")));
+
+app.use(express.json({ limit: "10kb" }));
+app.use(express.urlencoded({ extended: true, limit: "10kb" }));
 
 app.use(
   session({
-    secret: "user-super-secure-session-secret",
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
     cookie: { maxAge: 1000 * 60 * 60 },
@@ -44,11 +52,13 @@ app.all("*", (req, res, next) => {
 
 app.use((err, req, res, next) => {
   console.log(err);
-  const { statusCode = 500, status = "error", message = "internal server error" } = err;
+  const { statusCode = 500, status = "error", message = "internal app error" } = err;
+
+  console.log(err);
 
   res.status(statusCode).json({ status, message });
 });
 
 app.listen(port, host, () => {
-  console.log(`you are listening to ${host}: ${port}`);
+  console.info(`[i] app is running on ${host}:${port} ...`);
 });

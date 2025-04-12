@@ -8,8 +8,9 @@ const renderLoginPage = (req, res, next) => {
 
 const renderProfilePage = async (req, res, next) => {
   try {
-    const { username } = req.params;
-    const user = await User.findOne({ username }).select(
+    const { userId } = req.session;
+
+    const user = await User.findById(userId).select(
       "_id firstname  lastname username email gender createdAt"
     );
     if (!user) return res.redirect("http://localhost:8000/login");

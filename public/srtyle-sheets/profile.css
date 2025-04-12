@@ -48,7 +48,7 @@ label {
   border-radius: 0.5rem;
 }
 
-span {
+span.userInfo {
   width: 80%;
   height: 20%;
   border: 1px solid rgb(31, 30, 30);

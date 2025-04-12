@@ -1,7 +1,8 @@
 async function renderUpdateUser(username) {
   try {
-    const response = await fetch(`http://127.0.0.1:8000/api/auth/get-user/${username}`);
+    const response = await fetch(`http://127.0.0.1:8000/api/account`);
     const result = await response.json();
+    console.log(result);
     const user = result.data.user;
 
     if (!response.ok) {
@@ -49,7 +50,7 @@ async function updateUser(username) {
   console.log("data", data);
 
   try {
-    const response = await fetch(`http://127.0.0.1:8000/api/auth/editUser/${username}`, {
+    const response = await fetch(`http://127.0.0.1:8000/api/account`, {
       method: "PATCH",
       body: JSON.stringify(data),
       headers: {
@@ -68,9 +69,9 @@ async function updateUser(username) {
   }
 }
 
-async function logOut(username) {
+async function logOut() {
   try {
-    const response = await fetch(`http://127.0.0.1:8000/api/auth/logout/${username}`);
+    const response = await fetch(`http://127.0.0.1:8000/api/auth/logout`);
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);

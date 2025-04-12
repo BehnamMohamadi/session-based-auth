@@ -7,8 +7,11 @@ const {
   renderSignUpPage,
 } = require("../controller/view-controller");
 
+const { protect } = require("../controller/auth-controller");
+const { asyncHandler } = require("../utils/async-handler");
+
 router.get("/login", renderLoginPage);
-router.get("/profile/:username", renderProfilePage);
+router.get("/profile", asyncHandler(protect), renderProfilePage);
 
 router.get("/admin/login", renderAdminLoginPage);
 router.get("/admin/profile/:username", renderAdminProfilePage);

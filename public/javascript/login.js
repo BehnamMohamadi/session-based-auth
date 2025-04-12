@@ -28,10 +28,7 @@ loginSubmitBtn.addEventListener("click", async (e) => {
     }
 
     displayErrorMessage("Login successful! Redirecting...", true);
-    setTimeout(
-      () => (window.location.href = `http://127.0.0.1:8000/profile/${username}`),
-      2000
-    );
+    setTimeout(() => (window.location.href = `http://127.0.0.1:8000/profile`), 1000);
   } catch (error) {
     displayErrorMessage(error, false);
   }
